@@ -1,1 +1,1 @@
-web: gunicorn familymanagerpro-api:app
+web: gunicorn app:api
