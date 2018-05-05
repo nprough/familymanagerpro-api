@@ -5,8 +5,8 @@ from bson import ObjectId
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'fmpAPI'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/fmpAPI'
+app.config['MONGO_DBNAME'] = 'heroku_dkmmf4fk'
+app.config['MONGO_URI'] = 'mongodb://nick.prough@gmail.com:Gamer1994#@ds017195.mlab.com:17195/heroku_dkmmf4fk'
 
 mongo = PyMongo(app)
 
