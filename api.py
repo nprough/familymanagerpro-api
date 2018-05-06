@@ -11,8 +11,6 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI', None)
 
 mongo = PyMongo(app)
 
-
-# Shopping List #
 @app.route('/shoppinglist', methods=['GET'])
 def get_items():
     items = mongo.db.shoppinglist
@@ -52,9 +50,6 @@ def update_item():
 def delete_item(item_id):
     mongo.db.shoppinglist.delete_one({'_id': ObjectId(item_id)})
     return jsonify({'deleted': True})
-# End Shopping List #
-
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
