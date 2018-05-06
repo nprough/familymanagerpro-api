@@ -6,7 +6,7 @@ from bson import ObjectId
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'heroku_dkmmf4fk'
-app.config['MONGO_URI'] = 'mongodb://<nprough27>:<test_password27>@ds017195.mlab.com:17195/heroku_dkmmf4fk'
+app.config['MONGO_URI'] = 'mongodb://nprough27:test_password27@ds017195.mlab.com:17195/heroku_dkmmf4fk'
 
 mongo = PyMongo(app)
 
