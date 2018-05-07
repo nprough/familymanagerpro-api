@@ -49,7 +49,7 @@ def update_item():
 
 @app.route('/shoppinglist/<item_id>', methods=['DELETE'])
 def delete_item(item_id):
-    mongo.db.shoppinglist.delete_one({'_id': ObjectId(task_id)})
+    mongo.db.shoppinglist.delete_one({'_id': ObjectId(item_id)})
     return jsonify({'deleted': True})
 
 # Task List
