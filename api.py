@@ -62,7 +62,7 @@ def get_tasks():
     return jsonify({'tasks': output})
 
 @app.route('/tasklist/<task_id>', methods=['GET'])
-def get_tasks(task_id):
+def get_task(task_id):
     tasks = mongo.db.tasklist
     output = ""
     for i in tasks.find():
