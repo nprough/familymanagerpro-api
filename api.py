@@ -97,7 +97,7 @@ def delete_task(task_id):
 @app.route('/events', methods=['GET'])
 def get_events():
     events = mongo.db.events
-    output = ""
+    output = []
     for i in events.find():
         output.append({
             'name' : i['name'],
@@ -112,7 +112,7 @@ def get_events():
 @app.route('/incomes', methods=['GET'])
 def get_incomes():
     incomes = mongo.db.incomes
-    output = ""
+    output = []
     for i in incomes.find():
         output.append({
             'name' : i['name'],
@@ -127,7 +127,7 @@ def get_incomes():
 @app.route('/expenses', methods=['GET'])
 def get_expenses():
     expenses = mongo.db.expenses
-    output = ""
+    output = []
     for i in expenses.find():
         output.append({
             'name' : i['name'],
