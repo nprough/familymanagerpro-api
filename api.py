@@ -55,9 +55,9 @@ def delete_item(item_id):
 # Task List
 @app.route('/tasklist', methods=['GET'])
 def get_tasks():
-    items = mongo.db.tasklist
+    tasks = mongo.db.tasklist
     output = []
-    for i in items.find():
+    for i in tasks.find():
         output.append({'name': i['name'],'_id':str(i['_id'])})
     return jsonify({'tasks': output})
 
@@ -92,6 +92,52 @@ def update_task():
 def delete_task(task_id):
     mongo.db.tasklist.delete_one({'_id': ObjectId(task_id)})
     return jsonify({'deleted': True})
+
+# Events
+@app.route('/events', methods=['GET'])
+def get_events():
+    incomes = mongo.db.events
+    output = ""
+    for i in events.find():
+        output.append({
+            'name' : i['name'],
+            '_id' : str(i['_id']),
+            'date' : i['date'],
+            'description' : i['description']
+        })
+    return jsonify({'events': output})
+
+
+# Incomes
+@app.route('/incomes', methods=['GET'])
+def get_incomes():
+    incomes = mongo.db.incomes
+    output = ""
+    for i in incomes.find():
+        output.append({
+            'name' : i['name'],
+            '_id' : str(i['_id']),
+            'date' : i['date'],
+            'amount' : i['amount']
+        })
+    return jsonify({'incomes': output})
+
+
+# Expenses
+@app.route('/expenses', methods=['GET'])
+def get_expenses():
+    expenses = mongo.db.expenses
+    output = ""
+    for i in expenses.find():
+        output.append({
+            'name' : i['name'],
+            '_id' : str(i['_id']),
+            'date' : i['date'],
+            'amount' : i['amount'],
+            'type' : i['type'],
+            'payment_taken' : i['payment_taken']
+        })
+    return jsonify({'expenses': output})
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
