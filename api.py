@@ -96,7 +96,7 @@ def delete_task(task_id):
 # Events
 @app.route('/events', methods=['GET'])
 def get_events():
-    incomes = mongo.db.events
+    events = mongo.db.events
     output = ""
     for i in events.find():
         output.append({
